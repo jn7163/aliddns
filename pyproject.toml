@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aliddns-updater"
+version = "0.1.0"
+description = "A Python script to update Aliyun DNS (Alidns) records with the current public IP address."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+
+authors = [
+  { name="Author", email="author@example.com" },
+]
+
+# Project dependencies
+dependencies = [
+  "aliyun-python-sdk-core>=2.15.1",
+  "aliyun-python-sdk-alidns>=3.0.7",
+  "aliyun-python-sdk-domain>=3.14.11",
+  "urllib3>=1.26.18",
+  "requests>=2.32.3",
+]
+
+[project.scripts]
+aliddns-updater = "aliddns:main"
+
+[tool.hatch.build]
+include = [
+  "aliddns.py",
+]
